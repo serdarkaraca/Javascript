@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript ile bir sayının karekökünü hesaplayın">
+  <title>Javascript ile Karekök Hesaplayıcı</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      background: #ffffff;
+    }
+    input[type="number"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Javascript ile Karekök Hesaplayıcı</h1>
+    <input type="number" id="numberInput" placeholder="Bir sayı girin" />
+    <button onclick="calculateSquareRoot()">Karekök Hesapla</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function calculateSquareRoot() {
+      const number = parseFloat(document.getElementById('numberInput').value);
+      const resultDiv = document.getElementById('result');
+
+      if (isNaN(number) || number < 0) {
+        resultDiv.innerHTML = "Lütfen geçerli bir pozitif sayı girin.";
+      } else {
+        const squareRoot = Math.sqrt(number);
+        resultDiv.innerHTML = 'Karekök: ${squareRoot.toFixed(2)}';
+      }
+    }
+  </script>
+</body>
+</html>
