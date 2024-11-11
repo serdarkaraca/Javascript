@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="JavaScript ile modern dijital saat örneği">
+  <meta name="keywords" content="JavaScript dijital saat, modern saat tasarımı, HTML dijital saat">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Dijital Saat</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #282c34;
+      font-family: Arial, sans-serif;
+      color: #61dafb;
+    }
+    .clock {
+      font-size: 5rem;
+      letter-spacing: 0.1em;
+      background-color: #20232a;
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock">00:00:00</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
