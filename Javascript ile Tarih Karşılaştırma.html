@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Tarih Karşılaştırma</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #1e1e1e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #f1f1f1;
+      text-align: center;
+    }
+    label, .result {
+      font-size: 1rem;
+      color: #bbb;
+      margin-bottom: 8px;
+    }
+    input[type="date"] {
+      padding: 10px;
+      width: 95%;
+      margin-bottom: 16px;
+      background-color: #333;
+      color: #f1f1f1;
+      border: 1px solid #555;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      color: #f1f1f1;
+      background-color: #3a7cff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3572d1;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #f1f1f1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>JavaScript ile Tarih Karşılaştırma</h2>
+  <label for="startDate">Başlangıç Tarihi:</label>
+  <input type="date" id="startDate">
+  
+  <label for="endDate">Bitiş Tarihi:</label>
+  <input type="date" id="endDate">
+  
+  <button onclick="compareDates()">Tarihler Karşılaştır</button>
+  
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function compareDates() {
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
+    const resultElement = document.getElementById('result');
+
+    if (isNaN(startDate) || isNaN(endDate)) {
+      resultElement.textContent = "Lütfen geçerli iki tarih seçin.";
+      return;
+    }
+
+    const differenceInTime = endDate.getTime() - startDate.getTime();
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+    let comparisonResult;
+    if (differenceInTime > 0) {
+      comparisonResult = `Bitiş tarihi başlangıç tarihinden ${differenceInDays} gün sonradır.`;
+    } else if (differenceInTime < 0) {
+      comparisonResult = `Bitiş tarihi başlangıç tarihinden ${Math.abs(differenceInDays)} gün öncedir.`;
+    } else {
+      comparisonResult = "İki tarih aynıdır.";
+    }
+
+    resultElement.textContent = comparisonResult;
+  }
+</script>
+
+</body>
+</html>
