@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karakter Sayma Örneği</title>
+  <style> 
+	body {
+	  font-family: Arial, sans-serif;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100vh;
+	  margin: 0;
+	  background-color: #1e1e2f; /* Koyu mod arka plan rengi */
+	}
+
+	.container {
+	  text-align: center;
+	  width: 300px;
+	  padding: 20px;
+	  border-radius: 8px;
+	  background-color: #2e2e3e; /* Koyu mod konteyner arka planı */
+	  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	h1 {
+	  color: #ffffff; /* Başlık rengi */
+	}
+
+	textarea {
+	  width: 90%;
+	  height: 100px;
+	  padding: 10px;
+	  font-size: 16px;
+	  border: 1px solid #555;
+	  border-radius: 4px;
+	  resize: none;
+	  outline: none;
+	  background-color: #1e1e2f; /* Metin alanı arka planı */
+	  color: #ffffff; /* Metin rengi */
+	}
+
+	#char-counter {
+	  margin-top: 10px;
+	  font-size: 14px;
+	  color: #cccccc; /* Sayaç varsayılan rengi */
+	}
+
+	.red-text {
+	  color: #ff6b6b; /* Kırmızı uyarı rengi */
+	}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Karakter Sayacı</h1>
+    <textarea id="text-input" maxlength="200" placeholder="Mesajınızı buraya yazın..."></textarea>
+    <div id="char-counter">200 karakter kaldı</div>
+  </div>
+
+  <script>
+	  document.addEventListener('DOMContentLoaded', function () {
+	  const textInput = document.getElementById('text-input');
+	  const charCounter = document.getElementById('char-counter');
+	  const maxLength = textInput.getAttribute('maxlength');
+
+	  textInput.addEventListener('input', function () {
+		const remainingChars = maxLength - textInput.value.length;
+		charCounter.textContent = `${remainingChars} karakter kaldı`;
+
+		if (remainingChars <= 20) {
+		  charCounter.classList.add('red-text');
+		} else {
+		  charCounter.classList.remove('red-text');
+		}
+	  });
+	});
+
+  </script>
+</body>
+</html>
