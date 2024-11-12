@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayfayı Yazdır</title>
+  <style>
+    /* Modern buton stili */
+    .print-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .print-btn:hover {
+      background-color: #45a049;
+    }
+    /* Yazdırma stili */
+    @media print {
+      .print-btn, .non-printable {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Yazdırılacak Başlık</h1>
+    <p>Bu içerik yazdırılacaktır. Yazdırma işlemi için aşağıdaki butonu kullanabilirsiniz.</p>
+  </div>
+  <div class="non-printable">
+    <button class="print-btn" onclick="window.print()">Sayfayı Yazdır</button>
+  </div>
+</body>
+</html>
