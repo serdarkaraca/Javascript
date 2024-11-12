@@ -48,8 +48,9 @@
 	}
 
 	.red-text {
-	  color: #ff6b6b; /* Kırmızı uyarı rengi */
+	  color: #ff6b6b !important; /* Kırmızı uyarı rengi */
 	}
+
 
 
   </style>
@@ -63,21 +64,26 @@
 
   <script>
 	  document.addEventListener('DOMContentLoaded', function () {
-	  const textInput = document.getElementById('text-input');
-	  const charCounter = document.getElementById('char-counter');
-	  const maxLength = textInput.getAttribute('maxlength');
+		  const textInput = document.getElementById('text-input');
+		  const charCounter = document.getElementById('char-counter');
+		  const maxLength = textInput.getAttribute('maxlength');
 
-	  textInput.addEventListener('input', function () {
-		const remainingChars = maxLength - textInput.value.length;
-		charCounter.textContent = `${remainingChars} karakter kaldı`;
+		  textInput.addEventListener('input', function () {
+			const remainingChars = maxLength - textInput.value.length;
+			charCounter.textContent = `${remainingChars} karakter kaldı`;
 
-		if (remainingChars <= 20) {
-		  charCounter.classList.add('red-text');
-		} else {
-		  charCounter.classList.remove('red-text');
-		}
-	  });
-	});
+			// Log çıkışı ile kontrol ediyoruz
+			console.log("Remaining characters:", remainingChars);
+
+			// Kalan karakter sayısı 20 veya daha az olduğunda kırmızı yap, değilse normal renk
+			if (remainingChars <= 20) {
+			  charCounter.classList.add('red-text');
+			} else {
+			  charCounter.classList.remove('red-text');
+			}
+		  });
+		});
+
 
   </script>
 </body>
