@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript ve QRCode.js ile modern QR kod oluşturucu örneği.">
+    <title>Modern QR Kod Oluşturucu</title>
+    <!-- QRCode.js kütüphanesini ekleme -->
+    
+    <style>
+        
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background: linear-gradient(to right, #6a11cb, #2575fc);
+			font-family: Arial, sans-serif;
+			color: #fff;
+		}
+		.container {
+			text-align: center;
+		}
+		.dice {
+			font-size: 100px;
+			margin: 20px;
+		}
+		.dice-container {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+		}
+		.roll-button {
+			padding: 15px 30px;
+			font-size: 18px;
+			color: #6a11cb;
+			background-color: #fff;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+		.roll-button:hover {
+			background-color: #ddd;
+		}
+
+
+        
+    </style>
+</head>
+<body>
+
+   <div class="container">
+		<h1>Zar Atma Oyunu</h1>
+		<div class="dice-container">
+			<div id="dice1" class="dice">🎲</div>
+			<div id="dice2" class="dice">🎲</div>
+		</div>
+		<button class="roll-button" onclick="rollDice()">Zarları At</button>
+	</div>
+
+
+</div>
+
+
+   
+
+    <script>
+        function rollDice() {
+			const dice1 = document.getElementById('dice1');
+			const dice2 = document.getElementById('dice2');
+
+			// Zarlar için rastgele sayı oluşturma (1 ile 6 arası)
+			const randomNum1 = Math.floor(Math.random() * 6) + 1;
+			const randomNum2 = Math.floor(Math.random() * 6) + 1;
+
+			// Zarları güncelleme
+			dice1.textContent = getDiceFace(randomNum1);
+			dice2.textContent = getDiceFace(randomNum2);
+		}
+
+		// Zar numarasına göre emoji seçimi
+		function getDiceFace(num) {
+			switch(num) {
+				case 1: return "⚀";
+				case 2: return "⚁";
+				case 3: return "⚂";
+				case 4: return "⚃";
+				case 5: return "⚄";
+				case 6: return "⚅";
+				default: return "🎲";
+			}
+		}
+
+    </script>
+
+</body>
+</html>

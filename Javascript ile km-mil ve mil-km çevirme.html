@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript ile kilometre-mil ve mil-kilometre çevirici nasıl yapılır? HTML ve JavaScript örnek kodlarıyla birlikte adım adım açıklama.">
+    <title>KM - Mil Çevirici</title>
+</head>
+<body>
+    <h2>KM - Mil Çevirici</h2>
+    <div>
+        <label for="kmInput">Kilometre:</label>
+        <input type="number" id="kmInput" placeholder="Kilometre girin">
+        <button onclick="kmToMile()">Mil'e Çevir</button>
+    </div>
+    <div>
+        <label for="mileInput">Mil:</label>
+        <input type="number" id="mileInput" placeholder="Mil girin">
+        <button onclick="mileToKm()">KM'ye Çevir</button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+	// Kilometreyi mile çeviren fonksiyon
+	function kmToMile() {
+		const kmInput = document.getElementById("kmInput").value;
+		const mile = kmInput * 0.621371;
+		document.getElementById("result").innerText = `${kmInput} kilometre, yaklaşık ${mile.toFixed(2)} mil eder.`;
+	}
+
+	// Mili kilometreye çeviren fonksiyon
+	function mileToKm() {
+		const mileInput = document.getElementById("mileInput").value;
+		const km = mileInput * 1.60934;
+		document.getElementById("result").innerText = `${mileInput} mil, yaklaşık ${km.toFixed(2)} kilometre eder.`;
+	}
+
+
+	</script>
+</body>
+</html>

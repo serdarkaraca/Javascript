@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript ile Rastgele Sayı Üretme</title>
+</head>
+<body>
+    <h1>JavaScript ile Rastgele Sayı Üretme</h1>
+    <label for="min">Minimum Değer:</label>
+    <input type="number" id="min" placeholder="Minimum Değer">
+    <label for="max">Maksimum Değer:</label>
+    <input type="number" id="max" placeholder="Maksimum Değer">
+    <button onclick="rastgeleSayiUret()">Rastgele Sayı Üret</button>
+    <p id="sonuc"></p>
+
+    <script>
+	
+	function rastgeleSayiUret() {
+		// Kullanıcıdan minimum ve maksimum değerleri alıyoruz
+		const min = parseInt(document.getElementById('min').value);
+		const max = parseInt(document.getElementById('max').value);
+
+		// Rastgele sayı üretiyoruz
+		const rastgeleSayi = Math.floor(Math.random() * (max - min + 1)) + min;
+
+		// Sonucu ekrana yazdırıyoruz
+		document.getElementById('sonuc').innerText = `Rastgele Sayı: ${rastgeleSayi}`;
+	}
+
+	
+	</script>
+</body>
+</html>

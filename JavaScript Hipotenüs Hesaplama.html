@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipotenüs Hesaplama</title>
+</head>
+<body>
+    <h2>Hipotenüs Hesaplayıcı</h2>
+    <label for="a">Dik Kenar 1 (a):</label>
+    <input type="number" id="a" step="any">
+    <br><br>
+    
+    <label for="b">Dik Kenar 2 (b):</label>
+    <input type="number" id="b" step="any">
+    <br><br>
+    
+    <button onclick="hesapla()">Hipotenüsü Hesapla</button>
+    <h3>Sonuç: <span id="sonuc"></span></h3>
+    
+    <script>
+        function hesapla() {
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("sonuc").textContent = "Lütfen her iki dik kenarı da girin.";
+                return;
+            }
+
+            const hipotenus = Math.sqrt(a * a + b * b);
+            document.getElementById("sonuc").textContent = hipotenus.toFixed(2);
+        }
+    </script>
+</body>
+</html>

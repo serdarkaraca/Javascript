@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="JavaScript ve HTML ile dairenin alan ve çevresini hesaplama örneği">
+    <meta name="keywords" content="JavaScript, HTML, daire alanı, daire çevresi, hesaplama">
+    <title>Dairenin Alan ve Çevresini Hesapla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dairenin Alan ve Çevresini Hesapla</h1>
+    <label for="radius">Yarıçap (r):</label>
+    <input type="number" id="radius" placeholder="Yarıçapı girin">
+    <button onclick="calculateCircle()">Hesapla</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateCircle() {
+            const radius = document.getElementById("radius").value;
+            const pi = Math.PI;
+
+            if (radius <= 0) {
+                document.getElementById("result").textContent = "Lütfen geçerli bir yarıçap girin.";
+                return;
+            }
+
+            const area = pi * Math.pow(radius, 2);
+            const circumference = 2 * pi * radius;
+
+            document.getElementById("result").innerHTML = 
+                `Dairenin Alanı: ${area.toFixed(2)} <br> Dairenin Çevresi: ${circumference.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

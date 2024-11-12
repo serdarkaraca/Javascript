@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript ile Gün İsmi Yazdırma</title>
+</head>
+<body>
+    <h1>Bugün Günlerden: <span id="gun"></span></h1>
+
+    <script>
+        // JavaScript ile gün ismini alma
+        const gunler = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+        
+        // Yeni bir Date objesi oluşturup geçerli günü alalım
+        const tarih = new Date();
+        const gunIsmi = gunler[tarih.getDay()];
+
+        // Alınan gün ismini sayfada güncelleme
+        document.getElementById("gun").textContent = gunIsmi;
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript ve QRCode.js ile modern QR kod oluşturucu örneği.">
+    <title>Modern QR Kod Oluşturucu</title>
+    <!-- QRCode.js kütüphanesini ekleme -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4a90e2, #50c7c7);
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-width: 100px; /* Logonun boyutu */
+            height: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4a90e2;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            margin-top: 15px;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4a90e2;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        #qrCode {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f7f7f7;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://serdarkaraca.com.tr/path-to-your-logo.png" alt="Logo"> <!-- Logo URL'nizi buraya ekleyin -->
+        </div>
+        <h1>QR Kod Oluşturucu</h1>
+        <input type="text" id="qrText" placeholder="QR Koda dönüştürülecek metin veya URL girin">
+        <button onclick="generateQRCode()">QR Kod Oluştur</button>
+        <div id="qrCode"></div>
+    </div>
+
+   
+
+    <script>
+        function generateQRCode() {
+            // Mevcut QR kodunu temizleme
+            document.getElementById("qrCode").innerHTML = "";
+            
+            // Kullanıcının girdiği metni al
+            const qrText = document.getElementById("qrText").value;
+            
+            if (qrText.trim() === "") {
+                alert("Lütfen bir metin veya URL girin!");
+                return;
+            }
+            
+            // QRCode nesnesini oluştur ve metni QR koda çevir
+            new QRCode(document.getElementById("qrCode"), {
+                text: qrText,
+                width: 200,
+                height: 200,
+                colorDark : "#333",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+
+</body>
+</html>

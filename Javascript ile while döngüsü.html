@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="JavaScript While Döngüsü Örneği">
+    <title>While Döngüsü Örneği</title>
+</head>
+<body>
+    <h2>JavaScript While Döngüsü Örneği</h2>
+    <p id="output"></p>
+
+    <script>
+        let count = 1;
+        let output = "";
+
+        while (count <= 5) {
+            output += "Sayaç: " + count + "<br>";
+            count++;
+        }
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+</html>

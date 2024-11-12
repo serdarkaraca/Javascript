@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="JavaScript ile santigrat ve Fahrenheit dönüşümü için HTML ve JavaScript örneği.">
+    <meta name="keywords" content="JavaScript, sıcaklık dönüşümü, santigrat, Fahrenheit, HTML, sıcaklık çevirici">
+    <title>Santigrat-Fahrenheit Dönüşümü</title>
+</head>
+<body>
+
+<h2>Sıcaklık Dönüşüm Aracı</h2>
+
+<label for="temp">Sıcaklık Değeri:</label>
+<input type="number" id="temp" placeholder="Sıcaklık değerini girin">
+
+<select id="scale">
+    <option value="CtoF">Santigrat'tan Fahrenheit'a</option>
+    <option value="FtoC">Fahrenheit'tan Santigrat'a</option>
+</select>
+
+<button onclick="convertTemperature()">Dönüştür</button>
+
+<p id="result"></p>
+
+<script>
+function convertTemperature() {
+    // Kullanıcıdan sıcaklık değerini ve dönüşüm türünü al
+    let temp = parseFloat(document.getElementById("temp").value);
+    let scale = document.getElementById("scale").value;
+    let result;
+
+    // Dönüşüm işlemleri
+    if (scale === "CtoF") {
+        result = (temp * 9 / 5) + 32;
+        document.getElementById("result").innerHTML = temp + " °C = " + result.toFixed(2) + " °F";
+    } else if (scale === "FtoC") {
+        result = (temp - 32) * 5 / 9;
+        document.getElementById("result").innerHTML = temp + " °F = " + result.toFixed(2) + " °C";
+    } else {
+        document.getElementById("result").innerHTML = "Lütfen geçerli bir değer girin.";
+    }
+}
+</script>
+
+</body>
+</html>

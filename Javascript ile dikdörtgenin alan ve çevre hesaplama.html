@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Javascript ile dikdörtgenin alan ve çevresini hesaplama örneği">
+    <title>Dikdörtgen Alan ve Çevre Hesaplama</title>
+</head>
+<body>
+    <h1>Dikdörtgenin Alan ve Çevresini Hesaplayın</h1>
+
+    <label for="uzunKenar">Uzun Kenar:</label>
+    <input type="number" id="uzunKenar" placeholder="Uzun kenarı girin">
+
+    <label for="kisaKenar">Kısa Kenar:</label>
+    <input type="number" id="kisaKenar" placeholder="Kısa kenarı girin">
+
+    <button onclick="hesapla()">Hesapla</button>
+
+    <h2>Sonuçlar</h2>
+    <p id="alanSonucu">Dikdörtgenin Alanı: </p>
+    <p id="cevreSonucu">Dikdörtgenin Çevresi: </p>
+
+    <script>
+        function dikdortgenAlan(uzunKenar, kisaKenar) {
+            return uzunKenar * kisaKenar;
+        }
+
+        function dikdortgenCevre(uzunKenar, kisaKenar) {
+            return 2 * (uzunKenar + kisaKenar);
+        }
+
+        function hesapla() {
+            const uzunKenar = parseFloat(document.getElementById('uzunKenar').value);
+            const kisaKenar = parseFloat(document.getElementById('kisaKenar').value);
+
+            if (isNaN(uzunKenar) || isNaN(kisaKenar)) {
+                alert("Lütfen her iki kenar uzunluğunu da girin.");
+                return;
+            }
+
+            const alan = dikdortgenAlan(uzunKenar, kisaKenar);
+            const cevre = dikdortgenCevre(uzunKenar, kisaKenar);
+
+            document.getElementById('alanSonucu').innerText = "Dikdörtgenin Alanı: " + alan;
+            document.getElementById('cevreSonucu').innerText = "Dikdörtgenin Çevresi: " + cevre;
+        }
+    </script>
+</body>
+</html>
