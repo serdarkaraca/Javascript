@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="JavaScript ile kayan yazı yapımı ve SEO uyumlu rehber">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript ile Kayan Yazı</title>
+  <style>
+  
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.scrolling-container {
+  overflow: hidden;
+  white-space: nowrap;
+  border: 2px solid #ffffff;
+  padding: 10px;
+  width: 80%;
+  position: relative;
+}
+.scrolling-text {
+  display: inline-block;
+  padding-right: 50%;
+  animation: scrollText 1s linear infinite;
+  font-size: 1.5rem;
+  color: #f0f0f0;
+}
+@keyframes scrollText {
+  from {
+	transform: translateX(100%);
+  }
+  to {
+	transform: translateX(-100%);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="scrolling-container">
+    <div class="scrolling-text">
+      Serdar Karaca | serdarkaraca.com.tr | serdar@serdarkaraca.com.tr
+    </div>
+  </div>
+  
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+	const scrollingText = document.querySelector(".scrolling-text");
+
+	// Hız ayarı için fonksiyon
+	function setScrollSpeed(speedInSeconds) {
+	scrollingText.style.animationDuration = `${speedInSeconds}s`;
+	}
+
+	// Yeni metin ayarlama fonksiyonu
+	function updateText(newText) {
+	scrollingText.textContent = newText;
+	}
+
+	// Hızı 10 saniyeye düşürme ve yeni mesaj ekleme
+	setScrollSpeed(10);
+	updateText("Serdar Karaca | serdarkaraca.com.tr | serdar@serdarkaraca.com.tr");
+});
+
+  </script>
+</body>
+</html>
