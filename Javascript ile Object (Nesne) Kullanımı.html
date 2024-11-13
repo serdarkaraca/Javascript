@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanıcı Kartı</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #1e1e1e;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .user-card {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .user-card h2 {
+      margin: 0 0 10px;
+    }
+    .user-card p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="user-card" id="userCard"></div>
+
+  <script>
+  // script.js dosyasına ekleyin
+let user = {
+  name: "Serdar Karaca",
+  age: 30,
+  job: "Yazılım Geliştirici",
+  location: "İstanbul",
+  showDetails: function() {
+    return `Merhaba, ben ${this.name}, ${this.age} yaşındayım ve ${this.job} olarak çalışıyorum.`;
+  }
+};
+
+function displayUserCard() {
+  const userCard = document.getElementById("userCard");
+  userCard.innerHTML = `
+    <h2>${user.name}</h2>
+    <p>Yaş: ${user.age}</p>
+    <p>Meslek: ${user.job}</p>
+    <p>Konum: ${user.location}</p>
+    <p>${user.showDetails()}</p>
+  `;
+}
+
+displayUserCard();
+
+  </script>
+</body>
+</html>
