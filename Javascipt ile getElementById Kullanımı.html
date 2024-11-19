@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript ile getElementById kullanarak koyu temada modern bir örnek.">
+  <title>Javascript getElementById Örneği</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      max-width: 100%;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #1e88e5;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>getElementById ile Öğeye Erişim</h1>
+    <p id="text">Bu metnin rengini değiştirmek için butona tıklayın.</p>
+    <button id="changeColorBtn">Rengi Değiştir</button>
+  </div>
+  <script>
+  // Buton ve paragraf öğelerini seçiyoruz
+const button = document.getElementById("changeColorBtn");
+const text = document.getElementById("text");
+
+// Rastgele renk üreten bir fonksiyon
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// Butona tıklandığında metin rengini değiştir
+button.addEventListener("click", () => {
+  const newColor = getRandomColor();
+  text.style.color = newColor;
+});
+
+  </script>
+</body>
+</html>
