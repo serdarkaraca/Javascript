@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript indexOf Örneği</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #2a2a3d;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      width: 400px;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 90%;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      background-color: #3b3b4d;
+      color: #fff;
+    }
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #76c7c0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>JavaScript indexOf Örneği</h2>
+    <p>Dizide veya metinde bir öğe arayın:</p>
+	<p> <b>Örnek Dizi (Array) = </b> ["elma", "armut", "muz", "çilek"]; </p>
+	<p> <b>Örnek Metin (String) = </b> "JavaScript modern bir programlama dilidir.";</p>
+    <input type="text" id="inputValue" placeholder="Aranacak öğe veya kelime">
+    <button onclick="search()">Ara</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const sampleArray = ["elma", "armut", "muz", "çilek"];
+    const sampleString = "JavaScript modern bir programlama dilidir.";
+
+    function search() {
+      const input = document.getElementById('inputValue').value.toLowerCase();
+      const arrayIndex = sampleArray.indexOf(input);
+      const stringIndex = sampleString.toLowerCase().indexOf(input);
+
+      const resultDiv = document.getElementById('result');
+      if (arrayIndex !== -1) {
+        resultDiv.innerHTML = `Dizide <strong>"${input}"</strong> bulundu! İndeks: ${arrayIndex}`;
+      } else if (stringIndex !== -1) {
+        resultDiv.innerHTML = `Metinde <strong>"${input}"</strong> bulundu! İndeks: ${stringIndex}`;
+      } else {
+        resultDiv.innerHTML = `<strong>"${input}"</strong> dizide veya metinde bulunamadı.`;
+      }
+    }
+  </script>
+</body>
+</html>
