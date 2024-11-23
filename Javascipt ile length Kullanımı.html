@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Length Örneği</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    input {
+      background: #2c2c2c;
+      color: #ffffff;
+    }
+    button {
+      background: #007bff;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Length Özelliği</h1>
+    <p>Bir metin veya dizi uzunluğunu öğrenmek için kullanabilirsiniz.</p>
+    <input type="text" id="userInput" placeholder="Metin veya dizi elemanlarını girin">
+    <button onclick="hesapla()">Uzunluğu Hesapla</button>
+    <div class="result" id="result">Sonuç burada görüntülenecek.</div>
+  </div>
+
+  <script>
+    function hesapla() {
+      const input = document.getElementById('userInput').value;
+      let sonuc;
+
+      try {
+        // JSON.parse ile dizi olup olmadığını kontrol ediyoruz
+        const parsed = JSON.parse(input);
+        if (Array.isArray(parsed)) {
+          sonuc = `Dizi uzunluğu: ${parsed.length}`;
+        } else {
+          throw new Error('Geçerli bir dizi değil');
+        }
+      } catch {
+        // Dize uzunluğunu kontrol ediyoruz
+        sonuc = `Dize uzunluğu: ${input.length}`;
+      }
+
+      document.getElementById('result').innerText = sonuc;
+    }
+  </script>
+</body>
+</html>
