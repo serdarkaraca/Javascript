@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript String Parçalama</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      max-width: 500px;
+      padding: 20px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      background-color: #1e1e1e;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    input {
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #252525;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>String Parçalama</h1>
+    <p>Metni girin ve parçalamak için bir ayırıcı belirleyin:</p>
+    <input type="text" id="text" placeholder="Metni buraya yazın" />
+    <input type="text" id="separator" placeholder="Ayırıcı (örn: , veya boşluk)" />
+    <button onclick="parcala()">Parçala</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function parcala() {
+      const metin = document.getElementById("text").value;
+      const ayirici = document.getElementById("separator").value;
+      const sonuc = metin.split(ayirici);
+      
+      // Sonucu göster
+      const resultDiv = document.getElementById("result");
+      if (sonuc.length > 1) {
+        resultDiv.innerHTML = `<strong>Sonuç:</strong> <br> ${sonuc.join("<br>")}`;
+      } else {
+        resultDiv.innerHTML = "Lütfen geçerli bir ayırıcı girin!";
+      }
+    }
+  </script>
+</body>
+</html>
