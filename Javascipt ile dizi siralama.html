@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dizi Sıralama Örneği</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      color: #00d1b2;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      width: 300px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #00d1b2;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00b09b;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #1e1e1e;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Dizi Sıralama</h1>
+  <input id="numberInput" type="text" placeholder="Sayıları virgülle ayırarak girin (ör: 5,3,9,1)">
+  <div>
+    <button onclick="sortArray('asc')">Artan Sırala</button>
+    <button onclick="sortArray('desc')">Azalan Sırala</button>
+  </div>
+  <div class="result" id="resultBox">Sonuçlar burada görünecek</div>
+
+  <script>
+    function sortArray(order) {
+      const input = document.getElementById('numberInput').value;
+      const resultBox = document.getElementById('resultBox');
+
+      if (!input) {
+        resultBox.innerText = 'Lütfen geçerli bir giriş yapın!';
+        return;
+      }
+
+      // Sayıları diziye çevir
+      const numbers = input.split(',').map(num => parseFloat(num.trim()));
+      
+      // Geçerli sayı kontrolü
+      if (numbers.some(isNaN)) {
+        resultBox.innerText = 'Lütfen sadece sayıları virgülle ayırarak girin!';
+        return;
+      }
+
+      // Sıralama
+      if (order === 'asc') {
+        numbers.sort((a, b) => a - b); // Artan sıralama
+      } else {
+        numbers.sort((a, b) => b - a); // Azalan sıralama
+      }
+
+      resultBox.innerText = `Sıralı Dizi: ${numbers.join(', ')}`;
+    }
+  </script>
+</body>
+</html>
