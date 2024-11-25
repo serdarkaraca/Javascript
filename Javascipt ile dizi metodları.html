@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript dizi metodları rehberi: map, filter, reduce, sort ve diğerleri ile örnekler, modern projeler için açıklamalı JavaScript dersleri.">
+  <meta name="keywords" content="javascript, javascript dersleri, js, js dersleri, javascript örnekleri, javascript dizi metodları, javascript öğrenme, javascript eğitim, javascript array">
+  <title>JavaScript Dizi Metodları</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: #292929;
+      color: #fff;
+      width: calc(100% - 22px);
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Dizi Metodları</h1>
+    <p>Lütfen aralarında virgül ile ayrılmış sayılar girin:</p>
+    <input type="text" id="numberInput" placeholder="Örn: 12, 45, 78, 90">
+    <button onclick="filterEvenNumbers()">Çift Sayıları Göster</button>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function filterEvenNumbers() {
+      const input = document.getElementById('numberInput').value;
+      const numbers = input.split(',').map(num => parseInt(num.trim(), 10));
+      const evenNumbers = numbers.filter(num => !isNaN(num) && num % 2 === 0);
+      document.getElementById('output').textContent = 
+        evenNumbers.length > 0 
+          ? `Çift Sayılar: ${evenNumbers.join(', ')}`
+          : 'Hiç çift sayı bulunamadı.';
+    }
+  </script>
+</body>
+</html>
