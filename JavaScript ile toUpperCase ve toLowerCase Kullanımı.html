@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript ile toUpperCase ve toLowerCase metotlarını koyu temalı bir örnekle öğrenin.">
+  <title>JavaScript Metin Manipülasyonu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #121212;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Metin Manipülasyonu</h1>
+    <p>Metninizi büyük veya küçük harfe dönüştürün:</p>
+    <input type="text" id="userInput" placeholder="Metin girin...">
+    <div>
+      <button onclick="convertToUpper()">Büyük Harf</button>
+      <button onclick="convertToLower()">Küçük Harf</button>
+    </div>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    // Kullanıcı girdisini büyük harfe dönüştürme
+    function convertToUpper() {
+      const input = document.getElementById('userInput').value;
+      const output = document.getElementById('output');
+      output.textContent = input.toUpperCase();
+    }
+
+    // Kullanıcı girdisini küçük harfe dönüştürme
+    function convertToLower() {
+      const input = document.getElementById('userInput').value;
+      const output = document.getElementById('output');
+      output.textContent = input.toLowerCase();
+    }
+  </script>
+</body>
+</html>
