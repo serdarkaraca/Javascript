@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript replace metodu ile metin değiştirme uygulaması, koyu tasarımda modern bir örnek.">
+  <meta name="keywords" content="javascript, javascript dersleri, js, js dersleri, javascript örnekleri, replace metodu">
+  <title>JavaScript Replace Örneği</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 500px;
+    }
+
+    input, button {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    input {
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #292929;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Replace Örneği</h1>
+    <p>Aşağıya bir metin yazın ve belirli kelimelerin nasıl değiştiğini görün!</p>
+    <input type="text" id="userInput" placeholder="Metni buraya girin..." />
+    <button onclick="replaceText()">Metni Değiştir</button>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+  function replaceText() {
+  const inputElement = document.getElementById("userInput");
+  const outputElement = document.getElementById("output");
+
+  const metin = inputElement.value;
+  if (!metin) {
+    outputElement.textContent = "Lütfen bir metin girin!";
+    return;
+  }
+
+  // Değiştirilecek kelimeler
+  const replacements = {
+    "JavaScript": "TypeScript",
+    "JS": "Node.js",
+    "harika": "muhteşem",
+  };
+
+  // Tüm kelimeleri değiştir
+  const yeniMetin = metin.replace(/JavaScript|JS|harika/gi, (match) => replacements[match]);
+
+  // Sonucu göster
+  outputElement.textContent = yeniMetin;
+}
+
+  </script>
+</body>
+</html>
