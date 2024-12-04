@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript substring metodu kullanımı ve örnekleri. Modern ve koyu tasarımlı bir rehber!">
+  <meta name="keywords" content="javascript, javascript dersleri, js, js dersleri, javascript substring, javascript substring örnekleri">
+  <title>JavaScript substring() Örneği</title>
+  <style>
+     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #03dac6;
+    }
+    main {
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      color: #ffffff;
+    }
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      color: #ffffff;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #03dac6;
+      border: none;
+      border-radius: 5px;
+      color: #121212;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #028d75;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>JavaScript substring() Örneği</h1>
+  </header>
+  <main>
+    <label for="text">Bir metin girin:</label>
+    <input type="text" id="text" placeholder="Örneğin: JavaScript öğrenmek eğlenceli!">
+    <label for="start">Başlangıç İndeksi:</label>
+    <input type="number" id="start" placeholder="Başlangıç indeksi (ör. 0)">
+    <label for="end">Bitiş İndeksi (Opsiyonel):</label>
+    <input type="number" id="end" placeholder="Bitiş indeksi (ör. 10)">
+    <button onclick="applySubstring()">Sonucu Göster</button>
+    <div id="result"></div>
+  </main>
+  <script>
+    function applySubstring() {
+      const text = document.getElementById("text").value;
+      const start = parseInt(document.getElementById("start").value, 10);
+      const end = document.getElementById("end").value ? parseInt(document.getElementById("end").value, 10) : undefined;
+
+      if (text && !isNaN(start)) {
+        const result = end !== undefined ? text.substring(start, end) : text.substring(start);
+        document.getElementById("result").textContent = `Sonuç: ${result}`;
+      } else {
+        document.getElementById("result").textContent = "Lütfen geçerli bir metin ve başlangıç indeksi girin.";
+      }
+    }
+  </script>
+</body>
+</html>
