@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript startsWith() ve endsWith()</title>
+    <style>
+        
+body {
+            background-color: #1e1e1e;
+            color: orange;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: orange;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid orange;
+            border-radius: 4px;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+        }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #333;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript startsWith() ve endsWith()</h1>
+    <div class="container">
+        <label for="inputText">Metin Girin:</label>
+        <input type="text" id="inputText" placeholder="Bir metin girin">
+        
+        <label for="startCheck">Başlangıç Kontrolü:</label>
+        <input type="text" id="startCheck" placeholder="Başlangıç metni girin">
+        
+        <label for="endCheck">Bitiş Kontrolü:</label>
+        <input type="text" id="endCheck" placeholder="Bitiş metni girin">
+        
+        <button onclick="checkText()">Kontrol Et</button>
+        
+        <div class="result" id="result">Sonuç burada görüntülenecek...</div>
+    </div>
+
+    <script>
+        function checkText() {
+            const inputText = document.getElementById('inputText').value;
+            const startCheck = document.getElementById('startCheck').value;
+            const endCheck = document.getElementById('endCheck').value;
+            const resultDiv = document.getElementById('result');
+            
+            let resultMessage = `<strong>Girilen metin:</strong> ${inputText}<br>`;
+            
+            if (inputText.startsWith(startCheck)) {
+                resultMessage += `✔️ Metin "${startCheck}" ile başlıyor.<br>`;
+            } else {
+                resultMessage += `❌ Metin "${startCheck}" ile başlamıyor.<br>`;
+            }
+            
+            if (inputText.endsWith(endCheck)) {
+                resultMessage += `✔️ Metin "${endCheck}" ile bitiyor.<br>`;
+            } else {
+                resultMessage += `❌ Metin "${endCheck}" ile bitmiyor.<br>`;
+            }
+            
+            resultDiv.innerHTML = resultMessage;
+        }
+    </script>
+</body>
+</html>
