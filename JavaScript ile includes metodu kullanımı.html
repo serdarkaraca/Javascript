@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript includes() Örneği</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #4caf50;
+    }
+    .container {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      width: 80%;
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript includes() Örneği</h1>
+  <div class="container">
+    <p>Bir kelime veya eleman içerip içermediğini kontrol edin.</p>
+	<p>METİN : JavaScript dersleri harika!</p>
+    <input type="text" id="inputText" placeholder="Kelimeyi girin...">
+    <button onclick="checkIncludes()">Kontrol Et</button>
+    <p class="result" id="result"></p>
+  </div>
+
+  <script>
+    function checkIncludes() {
+      const text = document.getElementById('inputText').value.toLowerCase();
+      
+      // Test verileri
+      const metin = "JavaScript dersleri harika!";
+      const dizi = ["javascript", "html", "css", "react"];
+      
+      // Sonuç
+      const metinSonuc = metin.toLowerCase().includes(text);
+      const diziSonuc = dizi.includes(text);
+
+      // Mesaj oluşturma
+      let sonucMesaji = "";
+      if (metinSonuc && diziSonuc) {
+        sonucMesaji = `Kelime hem metin içinde hem de dizide bulundu!`;
+      } else if (metinSonuc) {
+        sonucMesaji = `Kelime sadece metin içinde bulundu.`;
+      } else if (diziSonuc) {
+        sonucMesaji = `Kelime sadece dizide bulundu.`;
+      } else {
+        sonucMesaji = `Kelime ne metin içinde ne de dizide bulundu.`;
+      }
+
+      // Sonucu göster
+      document.getElementById('result').innerText = sonucMesaji;
+    }
+  </script>
+</body>
+</html>
