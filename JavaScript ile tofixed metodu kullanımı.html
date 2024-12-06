@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript toFixed() Örneği</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #2a2a40;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #1e1e2f;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #ff6f61;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #ff5a45;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #00d084;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>toFixed() Metodu</h1>
+    <p>Bir sayıyı yuvarlayın ve belirli ondalık basamaklara formatlayın.</p>
+    <input id="numberInput" type="number" step="0.01" placeholder="Bir sayı girin">
+    <input id="decimalInput" type="number" step="1" min="0" placeholder="Ondalık basamak">
+    <button onclick="formatNumber()">Formatla</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function formatNumber() {
+      const number = parseFloat(document.getElementById('numberInput').value);
+      const decimals = parseInt(document.getElementById('decimalInput').value);
+      
+      if (isNaN(number) || isNaN(decimals)) {
+        document.getElementById('result').textContent = 'Lütfen geçerli bir sayı ve ondalık basamak girin!';
+        return;
+      }
+
+      const formattedNumber = number.toFixed(decimals);
+      document.getElementById('result').textContent = `Sonuç: ${formattedNumber}`;
+    }
+  </script>
+</body>
+</html>
