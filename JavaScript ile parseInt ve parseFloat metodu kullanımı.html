@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript parseInt() ve parseFloat() Örneği</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      background-color: #2a2a2a;
+      color: #ffffff;
+    }
+    button {
+      background-color: #4caf50;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #76c7c0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>parseInt() ve parseFloat() Örneği</h1>
+    <p>Bir sayı girin:</p>
+    <input type="text" id="inputValue" placeholder="Örneğin: 42.56px" />
+    <button onclick="convert()">Dönüştür</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convert() {
+      const inputValue = document.getElementById("inputValue").value;
+      const intResult = parseInt(inputValue);
+      const floatResult = parseFloat(inputValue);
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `
+        <p><strong>parseInt:</strong> ${isNaN(intResult) ? "Geçersiz sayı" : intResult}</p>
+        <p><strong>parseFloat:</strong> ${isNaN(floatResult) ? "Geçersiz sayı" : floatResult}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
