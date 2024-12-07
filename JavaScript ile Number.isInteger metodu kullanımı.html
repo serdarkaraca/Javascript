@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Number.isInteger Örneği</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #333333;
+            border-radius: 8px;
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 400px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: 1px solid #333333;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: #ffffff;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number.isInteger Kontrolü</h1>
+        <p>Bir sayı girin ve tam sayı olup olmadığını kontrol edin:</p>
+        <input type="text" id="numberInput" placeholder="Bir sayı girin...">
+        <button id="checkButton">Kontrol Et</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        const input = document.getElementById('numberInput');
+        const button = document.getElementById('checkButton');
+        const resultDiv = document.getElementById('result');
+
+        button.addEventListener('click', () => {
+            const value = input.value;
+            const number = Number(value);
+
+            if (value === '') {
+                resultDiv.textContent = 'Lütfen bir değer girin!';
+                resultDiv.style.color = '#ff0000';
+                return;
+            }
+
+            if (Number.isInteger(number)) {
+                resultDiv.textContent = `${value} bir tam sayıdır.`;
+                resultDiv.style.color = '#00ff00';
+            } else {
+                resultDiv.textContent = `${value} bir tam sayı değildir.`;
+                resultDiv.style.color = '#ff0000';
+            }
+        });
+    </script>
+</body>
+</html>
