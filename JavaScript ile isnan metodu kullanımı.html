@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript isNaN() Modern Örnek</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #282a36;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      color: #50fa7b;
+    }
+
+    input {
+      width: 200px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      background-color: #44475a;
+      color: #ffffff;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #6272a4;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #50fa7b;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript isNaN() Kontrolü</h1>
+    <p>Bir değer girin ve geçerli bir sayı olup olmadığını kontrol edin:</p>
+    <input type="text" id="inputValue" placeholder="Değer girin">
+    <button onclick="checkValue()">Kontrol Et</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkValue() {
+      const value = document.getElementById("inputValue").value;
+      const result = document.getElementById("result");
+
+      if (isNaN(value) || value.trim() === "") {
+        result.innerHTML = `<span style="color: #ff5555;">Girdiğiniz değer bir sayı değil!</span>`;
+      } else {
+        result.innerHTML = `<span style="color: #50fa7b;">Girdiğiniz değer geçerli bir sayı: ${value}</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
