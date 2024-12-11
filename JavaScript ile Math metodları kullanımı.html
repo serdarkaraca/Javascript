@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Math Methodları</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff6f61;
+        }
+        button {
+            background-color: #ff6f61;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #ff8f81;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Math Yuvarlama Metotları</h1>
+    <p>Bir sayı girin ve hangi yöntemin kullanıldığını görün:</p>
+    <input type="number" id="numberInput" placeholder="Bir sayı girin" step="0.01">
+    <br>
+    <button onclick="applyRound()">Math.round()</button>
+    <button onclick="applyCeil()">Math.ceil()</button>
+    <button onclick="applyFloor()">Math.floor()</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function applyRound() {
+            const number = parseFloat(document.getElementById('numberInput').value);
+            const result = Math.round(number);
+            displayResult(`Math.round(${number}) = ${result}`);
+        }
+
+        function applyCeil() {
+            const number = parseFloat(document.getElementById('numberInput').value);
+            const result = Math.ceil(number);
+            displayResult(`Math.ceil(${number}) = ${result}`);
+        }
+
+        function applyFloor() {
+            const number = parseFloat(document.getElementById('numberInput').value);
+            const result = Math.floor(number);
+            displayResult(`Math.floor(${number}) = ${result}`);
+        }
+
+        function displayResult(message) {
+            document.getElementById('result').textContent = message;
+        }
+    </script>
+</body>
+</html>
